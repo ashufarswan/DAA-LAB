@@ -1,0 +1,14 @@
+
+
+PRESENT  6
+
+
+
+
+PRESENT  3
+
+
+
+NOT PRESENT  6
+
+
