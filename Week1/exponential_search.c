@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<math.h>
 int main()
 {
     int t;
@@ -11,24 +10,17 @@ int main()
         for(i=0;i<n;i++)
             scanf("%d",&a[i]);
         scanf("%d",&key);
-        i=0;
-        if(a[i]==key){
+        if(a[0]==key){
             printf("Present %d\n",count);
             continue;
         }
-        int m=sqrt(n);
-        i=i+m;
-        while(i<n&&a[i]<key){
+        i=1;
+        while(i<n&&a[i]<=key){
             count++;
-            i=i+m;
-        }
-        if(a[i]==key){
-            count++;
-            printf("PRESENT %d\n",count);
-            continue;
+            i=i*2;
         }
         int k = i<n-1?i:n-1;
-        for(int j=i-m+1;j<k;j++){
+        for(int j=i/2;j<=k;j++){
             count++;
             if(a[j]==key){
                 printf("PRESENT %d\n",count);
@@ -41,4 +33,3 @@ int main()
     }
     return 0;
 }
-
