@@ -3,7 +3,7 @@ int main(){
     int t;
     scanf("%d",&t);
     while(t--){
-        int n,i,shift,comp;
+        int n,i,shift,comp,flag=0;
         shift=comp=0;
         scanf("%d",&n);
         int a[n];
@@ -15,11 +15,17 @@ int main(){
             while(j>=0&&key<a[j]){
                 comp++;
                 shift++;
+                flag = 1;
                 a[j+1]=a[j];
                 j--;
             }
+            if(j!=-1)
+                comp++;
             a[j+1]=key;
-            shift++;
+            if(flag==1){
+                shift++;
+                flag = 0;
+            }
         }
         for(i=0;i<n;i++)
             printf("%d ",a[i]);

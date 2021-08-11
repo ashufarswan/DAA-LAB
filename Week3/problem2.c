@@ -16,12 +16,10 @@ int main(){
                     pos=j;
                 }
             }
-            if(pos!=i){
-                shift++;
-                int temp = a[i];
-                a[i] = a[pos];
-                a[pos] = temp;
-            }
+            shift++;
+            int temp = a[i];
+            a[i] = a[pos];
+            a[pos] = temp;
         }
         for(i=0;i<n;i++)
             printf("%d ",a[i]);
