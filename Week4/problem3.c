@@ -1,29 +1,30 @@
 #include<stdio.h>
-int swap,comp;
-void quick_sort(int *a,int l,int r){
-    if(l<r){
-        int p = partition(a,l,r);
-        quick_sort(a,l,p-1);
-        quick_sort(a,p+1,r);
-    }
-}
-int partition(int *a,int l,int r){
-    int p = a[r];
-    int i = l-1;
-    for(int j=l;j<r;j++){
-        if(++comp&&a[j]<p){
+void quick_sort(int *a,int l,int u)
+{
+    if(l>=u)
+        return;
+    int pivot = a[l],i=l+1,j=u;
+    while(i<j){
+        while((pivot>=a[i])&&i<j){
             i++;
+        }
+        while(pivot<a[j]){
+            j--;
+        }
+        if(i<j){
+            comp++;
             int temp = a[i];
             a[i] = a[j];
             a[j] = temp;
-            swap++;
         }
     }
-    a[r] =a[i+1];
-    a[i+1] = p;
-    swap++;
-    return (i+1);
+    a[l]=a[j];
+    a[j]=pivot;
+    quick_sort(a,l,j-1);
+    quick_sort(a,j+1,u);
 }
+
+
 int main()
 {
     int t;
