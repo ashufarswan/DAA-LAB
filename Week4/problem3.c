@@ -1,29 +1,29 @@
 #include<stdio.h>
-void quick_sort(int *a,int l,int u)
-{
-    if(l>=u)
-        return;
-    int pivot = a[l],i=l+1,j=u;
-    while(i<j){
-        while((pivot>=a[i])&&i<j){
+void quick_sort(int *a,int l,int r,int k){
+    if(l<r){
+        int p = partition(a,l,r);
+        if(p+1==k)
+            printf("%d\n",a[p]);
+
+        quick_sort(a,l,p-1,k);
+        quick_sort(a,p+1,r,k);
+    }
+}
+int partition(int *a,int l,int r){
+    int p = a[r];
+    int i = l-1;
+    for(int j=l;j<r;j++){
+        if(a[j]<p){
             i++;
-        }
-        while(pivot<a[j]){
-            j--;
-        }
-        if(i<j){
-            comp++;
             int temp = a[i];
             a[i] = a[j];
             a[j] = temp;
         }
     }
-    a[l]=a[j];
-    a[j]=pivot;
-    quick_sort(a,l,j-1);
-    quick_sort(a,j+1,u);
+    a[r] =a[i+1];
+    a[i+1] = p;
+    return (i+1);
 }
-
 
 int main()
 {
@@ -36,11 +36,14 @@ int main()
         int a[n];
         for(int i=0;i<n;i++)
             scanf("%d",&a[i]);
-        quick_sort(a,0,n-1);
-        for(int i=0;i<n;i++)
-            printf("%d ",a[i]);
-        printf("\nComparison: %d",comp);
-        printf("\nSwaps: %d\n\n\n",swap);
+        int k;
+        scanf("%d",&k);
+        if(k>n-1)
+        {
+            printf("NOT PRESENT");
+            exit(0);
+        }
+        quick_sort(a,0,n-1,k);
     }
     return 0;
 }
