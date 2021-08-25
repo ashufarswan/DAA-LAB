@@ -10,8 +10,6 @@ int main()
         for(i=0;i<n;i++){
             scanf(" %c",&a[i]);
         }
-        for(i=0;i<n;i++)
-            printf("%c ",a[i]);
         int count[26]={0};
         for(i=0;i<n;i++){
             count[a[i]-97]++;
