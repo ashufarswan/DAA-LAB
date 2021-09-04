@@ -1,13 +1,15 @@
 #include<stdio.h>
-void quick_sort(int *a,int l,int r,int k){
-    if(l<r){
-        int p = partition(a,l,r);
-        if(p+1==k)
-            printf("%d\n",a[p]);
-
-        quick_sort(a,l,p-1,k);
-        quick_sort(a,p+1,r,k);
-    }
+int ksmallest(int *a,int l,int r,int k){
+    if(l==r)
+        return a[l];
+    int pos = partition(a,l,r);
+    int c = pos-l+1;
+    if(c==k)
+        return a[pos];
+    else if(c>k)
+         return ksmallest(a,l,pos-1,k);
+    else
+         return ksmallest(a,pos+1,r,k-i);
 }
 int partition(int *a,int l,int r){
     int p = a[r];
@@ -38,12 +40,7 @@ int main()
             scanf("%d",&a[i]);
         int k;
         scanf("%d",&k);
-        if(k>n-1)
-        {
-            printf("NOT PRESENT");
-            exit(0);
-        }
-        quick_sort(a,0,n-1,k);
+        ksmallest(a,0,n-1,k);
     }
     return 0;
 }
