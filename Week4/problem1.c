@@ -1,17 +1,5 @@
 #include<stdio.h>
 int comp,inv;
-void inv_count(int *a,int *b,int n1,int n2){
-    for(int i=0;i<n1;i++)
-    {
-        for(int j=i+1;j<n2;j++)
-        {
-             if(a[i]>b[j])
-             {
-                 count++;
-             }
-         }
-     }
-}
 void merge(int *a,int s,int m,int e){
     int i,j,k;
     int n1 = m-s+1;
@@ -31,6 +19,7 @@ void merge(int *a,int s,int m,int e){
             i++;
         }
         else{
+            inv++;
             a[k]=r[j];
             j++;
         }
