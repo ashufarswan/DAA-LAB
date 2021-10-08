@@ -1,0 +1,5 @@
+Node 1  | Path:  | Distance: 0
+Node 2  | Path: 3<-1<- | Distance: 3
+Node 3  | Path: 1<- | Distance: 1
+Node 4  | Path: 3<-1<- | Distance: 5
+Node 5  | Path: 2<-3<-1<- | Distance: 7
