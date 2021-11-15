@@ -1,0 +1,1 @@
+Minimum number of operation: 4500
