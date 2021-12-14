@@ -9,7 +9,7 @@ int ksmallest(int *a,int l,int r,int k){
     else if(c>k)
          return ksmallest(a,l,pos-1,k);
     else
-         return ksmallest(a,pos+1,r,k-i);
+         return ksmallest(a,pos+1,r,k-c);
 }
 int partition(int *a,int l,int r){
     int p = a[r];
@@ -32,7 +32,6 @@ int main()
     int t;
     scanf("%d",&t);
     while(t--){
-        comp=0,swap=0;
         int n;
         scanf("%d",&n);
         int a[n];
@@ -40,7 +39,7 @@ int main()
             scanf("%d",&a[i]);
         int k;
         scanf("%d",&k);
-        ksmallest(a,0,n-1,k);
+        printf("\n%d smallest: %d\n",k,ksmallest(a,0,n-1,k));
     }
     return 0;
 }
